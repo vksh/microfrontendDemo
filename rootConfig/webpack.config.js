@@ -24,5 +24,13 @@ module.exports = (webpackConfigEnv, argv) => {
         },
       }),
     ],
+    devServer: {
+          proxy: {
+              "localhost:9000/static/**": {
+                  target: "http://localhost:8000",
+                  pathRewrite: {"^/app1" : ""}
+              }
+          }
+      },
   });
 };

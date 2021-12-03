@@ -2,8 +2,8 @@ import { registerApplication, start } from "single-spa";
 
 
 registerApplication({
-  name: "@wynk/reactApp",
-  app: () => System.import("@wynk/reactApp"),
+  name: "@wynk/msp",
+  app: () => System.import("@wynk/msp"),
   activeWhen: ["/react"],
 });
 
@@ -12,7 +12,11 @@ registerApplication({
   app: () => System.import("angular-app"),
   activeWhen: ["/angular"],
 });
-
+registerApplication({
+  name: "@wynk/reactApp",
+  app: () => System.import("@wynk/reactApp"),
+  activeWhen: ["/analytics"],
+});
 
 // registerApplication({
 //   name: "@wynk/navbar",
